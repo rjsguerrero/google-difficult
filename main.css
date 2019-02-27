@@ -12,7 +12,7 @@ html {
 
 .container {
     display: grid;
-    height: 100vh;
+    /height: 100vh;
     grid-template-areas: 
         "logo searchbar options"
         ". nav ."
@@ -20,8 +20,17 @@ html {
         ". results ."
         ". relRes ."
         ". searchNav ."
-        ". footer .";
-    grid-template-rows: auto 1fr auto; 
+        "footer footer footer";
+        
+    
+    grid-template-columns: auto minmax(min-content, 600px) 1fr;
+    grid-template-rows: 37px 58px 43px auto auto 55px 82px;
+    justify-content: flex-start;
+    align-items: start;
+}
+
+.logo{
+    grid-area: logo;
 }
 
 .left{
@@ -31,11 +40,6 @@ html {
 .right{
     display:flex;
 }
-
-.logo{
-    grid-area: logo;
-}
-
 
 
 .searchbar {
@@ -60,6 +64,7 @@ html {
 .options{
     grid-area: options;
     display:flex;
+    justify-content: right;
 }
 
 #appsBut{
@@ -76,6 +81,7 @@ html {
 .nav{
     grid-area: nav;
     display:flex;
+    justify-content: space-between;
 }
 
 .numresults{
@@ -108,24 +114,33 @@ html {
 .footer {
     grid-area: footer;
     background-color: #f2f2f2;
-    display: flex;
-    flex-direction: column;
     color: rgba(0,0,0,.54);
     border: 1px solid #e4e4e4;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
 
+}
+
+.footer p{
+    align-self: center;
 }
 
 .location{
     float: left;
-    align-items: center;
-    align-content: center;
+    justify-items: center;
+
     font-size: 1.2em;
     border-bottom: 1px solid #e4e4e4;
+    flex: 1;
+    display:flex;
 }
 
 .footerNav{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
+    justify-content: flex-start;
+    justify-items: center;
+    
+    flex: 1;
+    display:flex;
 }
